@@ -1,0 +1,3 @@
+#!/bin/bash
+#to print files sorted numberically of group and ids and hidden files 
+ls -lan \n 
