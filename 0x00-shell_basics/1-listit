@@ -1,4 +1,4 @@
 #!/bin/bash
-#to print absolute path name 
-ls \n 
+#to print contents of current directory
+ls -d */  \n 
 
