@@ -1,3 +1,4 @@
 #!/bin/bash
-#to display the contents of the directory
-ls \n
+#to print absolute path name 
+ls \n 
+
