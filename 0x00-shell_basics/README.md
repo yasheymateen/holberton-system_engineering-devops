@@ -1,0 +1,1 @@
+This project shows the basics of Shell and navigating and manipulating files \n
