@@ -1,2 +1,4 @@
 #!/bin/bash /n
-pwd /n
+
+#to print absolute path name 
+echo pwd /n
