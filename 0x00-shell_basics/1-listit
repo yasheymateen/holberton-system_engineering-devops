@@ -1,4 +1,2 @@
 #!/bin/bash
-#to print contents of current directory
-ls -d */  \n 
-
+ls -d */ 

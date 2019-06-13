@@ -1,3 +1,2 @@
 #!/bin/bash
-#to bring back to working directory
-cd ~ \n
+cd ~ 
