@@ -1,2 +1,2 @@
 #!/bin/bash
-Global HOLBERTON="Betty"
+Global $HOLBERTON="Betty"
