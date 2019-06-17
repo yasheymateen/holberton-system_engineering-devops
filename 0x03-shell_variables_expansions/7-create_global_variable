@@ -1,2 +1,2 @@
 #!/bin/bash
-gvar HOLBERTON="Betty"
+export HOLBERTON="Betty"
