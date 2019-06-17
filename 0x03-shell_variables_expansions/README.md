@@ -1,0 +1,1 @@
+This project expands upon shell scripts using variable expansions/aliases \n
