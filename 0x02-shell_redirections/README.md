@@ -1,0 +1,1 @@
+This project teaches to use shell redirections and input outputs and filters \n
