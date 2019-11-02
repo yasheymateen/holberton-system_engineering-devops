@@ -1,0 +1,1 @@
+This project contains assignments about loops parsing and conditions

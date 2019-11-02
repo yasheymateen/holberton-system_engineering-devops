@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Displays Holberton school 10 times but for 9t displays HI
+count=0
+while [ $count -lt 10 ];
+do
+	echo "Holberton School"
+	if [ $count = 8 ]; then echo "Hi"; fi
+	((count++))
+done
