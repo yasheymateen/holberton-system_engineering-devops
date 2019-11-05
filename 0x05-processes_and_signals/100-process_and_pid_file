@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Creates /var/run/holbertonscript containing its PID
+echo $$ > /var/run/holbertonscript.pid
+TRUE=true
+TERM_handler() {
+    echo "I hate the kill command"
+    sudo rm /var/run/holbertonscript.pid
+    exit
+}
+QUIT_handler() {
+    sudo rm /var/run/holbertonscript.pid
+    exit
+}
+
+trap "echo Y U no love me?!" SIGINT
+trap TERM_handler SIGTERM
+trap QUIT_handler SIGQUIT
+
+while [ $TRUE ]; do
+    echo "To infinity and beyond"
+    sleep 2
+done
