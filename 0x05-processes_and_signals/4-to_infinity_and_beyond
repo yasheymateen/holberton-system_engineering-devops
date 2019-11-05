@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Write a bash script that displays to infinity and beyond
+TRUE=true
+while [ $TRUE ]; do
+      echo "To infinity and beyond"
+      sleep 2
+done
