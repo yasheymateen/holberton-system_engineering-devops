@@ -1,0 +1,1 @@
+This project folder contains teh assignments for OSI and networking
