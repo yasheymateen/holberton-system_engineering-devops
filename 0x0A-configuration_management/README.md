@@ -1,0 +1,1 @@
+## This project introduces configuration management using puppet
