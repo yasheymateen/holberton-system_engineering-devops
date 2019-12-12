@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Install and configure nginx on a new server.
-sudo apt-get update
+sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo /etc/init.d/nginx start
-echo "Holberton School for the win!" | sudo tee /usr/share/nginx/html/index.html
+ufw allow 'Nginx HTTP'
+echo "Holberton School for the win!" > /var/www/html/index.html
+service nginx start
