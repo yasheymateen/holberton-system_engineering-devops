@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Displays information about subdomains after configuring our domain zone
+declare -a subdomains=("www" "lb-01" "web-01" "web-02")
+domain=$1
+
+if [ -z "$2" ]
+then
+    for i in "${subdomains[@]}"
+    do
+	val=$(dig "$i"."$domain" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record", "and points to " $5}')
+	retval="The subdomain in $i is a $val"
+	echo "$retval"
+    done
+else
+    val=$(dig "$2"."$domain" | grep -A1 'ANSWER SECTION: ' | tail -n1 | awk '{print $4 " record", "and points to " $5}')
+    retval="The subdomain $2 is a $val"
+    echo "$retval"
+fi
