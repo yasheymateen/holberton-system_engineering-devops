@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Displays information about subdomains after configuring our domain zone
+
+
 declare -a subdomains=("www" "lb-01" "web-01" "web-02")
+
 domain=$1
 
 if [ -z "$2" ]
