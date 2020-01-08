@@ -1,21 +1,37 @@
 #!/usr/bin/env bash
-# Displays information about subdomains after configuring our domain zone
+# bash script
 
+DOMAIN_NAME=$1
+SUBDOMAIN=$2
+FILE=file.txt
 
-declare -a subdomains=("www" "lb-01" "web-01" "web-02")
+{
+    dig www."$1" | grep -A1 'ANSWER SECTION:'
+    dig lb-01."$1" | grep -A1 'ANSWER SECTION:'
+    dig web-01."$1" | grep -A1 'ANSWER SECTION:'
+    dig web-02."$1" | grep -A1 'ANSWER SECTION:'
+} >> $FILE
 
-domain=$1
-
-if [ -z "$2" ]
+if [ -z "$DOMAIN_NAME"  ]
 then
-    for i in "${subdomains[@]}"
-    do
-	val=$(dig "$i"."$domain" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record", "and points to " $5}')
-	retval="The subdomain in $i is a $val"
-	echo "$retval"
-    done
-else
-    val=$(dig "$2"."$domain" | grep -A1 'ANSWER SECTION: ' | tail -n1 | awk '{print $4 " record", "and points to " $5}')
-    retval="The subdomain $2 is a $val"
-    echo "$retval"
+    echo The subdomain "" is a "" record and points to  ""
 fi
+
+func2 () {
+      if [ -z "$SUBDOMAIN" ]
+      then
+      awk '/www/ {print "The subdomain www is a "$4" record and points to "$5;}' $FILE
+      awk '/lb-01/ {print "The subdomain lb-01 is a "$4" record and points to "$5;}' $FILE
+      awk '/web-01/ {print "The subdomain web-01 is a "$4" record and points to "$5;}' $FILE
+      awk '/web-02/ {print "The subdomain web-02 is a "$4" record and points to "$5;}' $FILE
+      else
+      awk -v my_var="$SUBDOMAIN" "/$SUBDOMAIN/"'{print "The subdomain "my_var" is a "$4" record and points to "$5;}' $FILE
+      fi
+      return 0
+}
+
+func2 "$DOMAIN_NAME" "$SUBDOMAIN"
+
+
+
+echo "" > $FILE
