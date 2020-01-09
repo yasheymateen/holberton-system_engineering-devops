@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 # Install and configure HAproxy on my lb-01 server
+apt-get -y update
+apt-get install -y software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-1.5
 
-sudo add-apt-repository -y ppa:vbernat/haproxy-1.5
-sudo apt-get update
-sudo apt-get install -y haproxy
-sudo sed -i '10a ENABLED=1' /etc/default/haproxy
+apt-get -y update
+apt-get install -y haproxy=1.5.\*
 
-file=/etc/haproxy/haproxy.cfg
-sudo sed -i '35a \ \nlisten appname :80\n\tmode http\n\tbalance roundrobin\n\tserver 829-web-01 35.227.56.7:80 check\n\tserver 829-web-02 35.231.96.229:80 check\n' $file
-sudo service haproxy restart
+echo "
+frontend http
+    bind *:80
+    mode http                                                                      default_backend web-backend
+backend web-backend
+    balance roundrobin
+    server 829-web-01 35.227.56.7:80 check
+    server 829-web-02 35.231.96.229:80 check" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
