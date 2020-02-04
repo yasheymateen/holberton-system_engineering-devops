@@ -9,10 +9,10 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print('Error: Integer parameter for Employee ID required.')
         exit(1)
-
-    name = 'https://jsonplaceholder.typicode.com/users/' + sys.argv[1]
+    user_id = sys.argv[1]
+    name = 'https://jsonplaceholder.typicode.com/users/' + user_id
     name = requests.get(name).json().get('name')
-    url = 'https://jsonplaceholder.typicode.com/todos?userId=' + sys.argv[1]
+    url = 'https://jsonplaceholder.typicode.com/todos?userId=' + user_id
     r = requests.get(url)
 
     total_tasks = 0
@@ -23,7 +23,7 @@ if __name__ == '__main__':
         if user.get('completed') is True:
             task_progress.append(user.get('title'))
             number_done += 1
-    first_line = 'Employee {} is done with tasks({}/{})'.format(name,
+    first_line = 'Employee {} is done with tasks({}/{}):'.format(name,
                                                                 number_done,
                                                                 total_tasks)
     print(first_line)
