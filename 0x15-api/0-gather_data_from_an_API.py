@@ -24,8 +24,8 @@ if __name__ == '__main__':
             task_progress.append(user.get('title'))
             number_done += 1
     first_line = 'Employee {} is done with tasks({}/{}):'.format(name,
-                                                                number_done,
-                                                                total_tasks)
+                                                                 number_done,
+                                                                 total_tasks)
     print(first_line)
     for task in task_progress:
         print('\t', task)
