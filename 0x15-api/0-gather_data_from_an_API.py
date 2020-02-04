@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ using rest API, return information about a given employee id's progress"""
 
 import json
