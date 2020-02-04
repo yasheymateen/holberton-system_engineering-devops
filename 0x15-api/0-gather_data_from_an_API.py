@@ -7,9 +7,10 @@ import requests
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
+        print('Error: Integer parameter for Employee ID required.')
         exit(1)
 
-    name = 'https://jsonplaceholder.typicode.com/users' + sys.argv[1]
+    name = 'https://jsonplaceholder.typicode.com/users/' + sys.argv[1]
     name = requests.get(name).json().get('name')
     url = 'https://jsonplaceholder.typicode.com/todos?userId=' + sys.argv[1]
     r = requests.get(url)
