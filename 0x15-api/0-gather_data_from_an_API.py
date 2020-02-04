@@ -28,4 +28,4 @@ if __name__ == '__main__':
                                                                  total_tasks)
     print(first_line)
     for task in task_progress:
-        print('\t', task)
+        print('\t {}'.format(task))
