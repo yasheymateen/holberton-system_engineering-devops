@@ -1,0 +1,1 @@
+## This project focuses on using the reddit api to parse out information
